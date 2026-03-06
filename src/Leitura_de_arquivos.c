@@ -16,6 +16,8 @@ FILE* carregar_arquivo(char* nome_do_arquivo) {
 
         f = fopen(caminho, "r");
     }
+
+    printf("Arquivo %s carregado!\n\n", nome_do_arquivo);
     
     return f;
 }

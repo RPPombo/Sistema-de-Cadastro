@@ -4,4 +4,6 @@
 #include <stdio.h>
 #include <string.h>
 #include "Leitura_de_arquivos.h"
+#include "Funcoes_interface.h"
+#include "Alteracao_de_dados.h"
 #endif
