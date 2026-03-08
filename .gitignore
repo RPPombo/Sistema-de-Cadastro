@@ -1,0 +1,14 @@
+# arquivos objeto
+*.o
+
+# executáveis
+bin/
+
+# arquivos temporários
+*.out
+
+# arquivos de debug
+*.gdb
+
+# cache do editor
+.vscode/

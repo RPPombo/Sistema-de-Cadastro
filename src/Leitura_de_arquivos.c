@@ -23,31 +23,46 @@ FILE* carregar_arquivo(char* nome_do_arquivo) {
 }
 
 void carregar_alunos(ALUN* info_alunos) {
-    FILE* f;
-    f = carregar_arquivo("alunos.txt");
 
-    fscanf(f, "Quantidade: %d", &info_alunos->quantidade);
+    FILE* f = carregar_arquivo("alunos.txt");
+
+    char linha[110];
+
+    fgets(linha, sizeof(linha), f);
+    sscanf(linha, "Quantidade: %d", &info_alunos->quantidade);
 
     alocar_memoria_alunos(info_alunos);
 
-    for (int i=0; i<info_alunos->quantidade; i++) {
-        fscanf(f, "%s | %d", info_alunos->nome[i], &info_alunos->turma[i]);
+    for (int i = 0; i < info_alunos->quantidade; i++) {
+
+        fgets(linha, sizeof(linha), f);
+
+        sscanf(linha, "%49[^|] | %d",
+               info_alunos->nome[i],
+               &info_alunos->turma[i]);
     }
 
     fclose(f);
 }
 
 void carregar_professores(PROF* info_professores) {
-    FILE* f;
-    f = carregar_arquivo("professores.txt");
 
-    fscanf(f, "Quantidade: %d", &info_professores->quantidade);
+    FILE* f = carregar_arquivo("professores.txt");
+
+    char linha[100];
+
+    fgets(linha, sizeof(linha), f);
+    sscanf(linha, "Quantidade: %d", &info_professores->quantidade);
 
     alocar_memoria_professores(info_professores);
 
-    for (int i=0; i<info_professores->quantidade; i++) {
-        fscanf(f, "%s | %s", info_professores->nome[i], info_professores->materia[i]);
-    
+    for (int i = 0; i < info_professores->quantidade; i++) {
+
+        fgets(linha, sizeof(linha), f);
+
+        sscanf(linha, "%49[^|] | %49[^\n]",
+               info_professores->nome[i],
+               info_professores->materia[i]);
     }
 
     fclose(f);

@@ -32,4 +32,6 @@ int main() {
             break;
         }
     }
+
+    liberar_memoria_structs(&info_alunos, &info_professores);
 }
