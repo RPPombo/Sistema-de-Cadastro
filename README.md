@@ -22,6 +22,10 @@ Sistema de cadastro
  ┣ data
  ┃ ┣ alunos.txt
  ┃ ┗ professores.txt
+ ┣ images
+ ┃ ┣ menu_alunos.png
+ ┃ ┣ menu_inicial.png
+ ┃ ┗ menu_professores.png
  ┣ include
  ┃ ┣ Alteracao_de_dados.h
  ┃ ┣ Funcoes_interface.h
