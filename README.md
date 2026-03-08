@@ -72,17 +72,17 @@ Esse comando irá:
 Ao iniciar, o programa:
 
 1. Carrega os dados armazenados no diretório **data**
-2. Exibe o menu principal para interação com o usuário
+2. Exibe o menu principal para interação com o usuário.  
 ![Menu Inicial](./images/menu_inicial.png)  
 
 ### Opção 1 — Alunos
 
-Permite visualizar e alterar o banco de dados de alunos.
+Permite visualizar e alterar o banco de dados de alunos.  
 ![Menu Alunos](./images/menu_alunos.png)
 
 ### Opção 2 — Professores
 
-Permite visualizar e alterar o banco de dados de professores.
+Permite visualizar e alterar o banco de dados de professores.  
 ![Menu Professores](./images/menu_professores.png)
 
 ### Opção 0
