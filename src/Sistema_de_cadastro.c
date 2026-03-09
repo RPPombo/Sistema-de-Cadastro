@@ -33,5 +33,7 @@ int main() {
         }
     }
 
+    salvar_arquivos(info_alunos, info_professores);
+
     liberar_memoria_structs(&info_alunos, &info_professores);
 }
