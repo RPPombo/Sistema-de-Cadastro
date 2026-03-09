@@ -114,7 +114,6 @@ O sistema atualmente permite:
 
 Algumas melhorias planejadas para o projeto:
 
-- Salvamento automático das alterações em arquivo
 - Ordenação automática (ordem alfabética)
 - Busca de alunos ou professores por nome
 - Interface de menu mais robusta
