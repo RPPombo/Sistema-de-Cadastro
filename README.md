@@ -19,7 +19,7 @@ A arquitetura do projeto é a seguinte:
 
 ```arquitetura
 Sistema de cadastro
- ┣ data
+data
  ┃ ┣ alunos.txt
  ┃ ┗ professores.txt
  ┣ images
@@ -31,13 +31,17 @@ Sistema de cadastro
  ┃ ┣ Funcoes_interface.h
  ┃ ┣ Gerenciamento_de_structs.h
  ┃ ┣ Leitura_de_arquivos.h
- ┃ ┗ Sistema_de_cadastro.h
+ ┃ ┣ Salvamento_de_arquivo.h
+ ┃ ┣ Sistema_de_cadastro.h
+ ┃ ┗ Tratamento_de_entradas.h
  ┣ src
  ┃ ┣ Alteracao_de_dados.c
  ┃ ┣ Funcoes_interface.c
  ┃ ┣ Gerenciamento_de_structs.c
  ┃ ┣ Leitura_de_arquivos.c
- ┃ ┗ Sistema_de_cadastro.c
+ ┃ ┣ Salvamento_de_arquivo.c
+ ┃ ┣ Sistema_de_cadastro.c
+ ┃ ┣ Tratamento_de_entradas.c
  ┣ .gitignore
  ┣ Makefile
  ┗ README.md
@@ -117,7 +121,6 @@ Algumas melhorias planejadas para o projeto:
 - Ordenação automática (ordem alfabética)
 - Busca de alunos ou professores por nome
 - Interface de menu mais robusta
-- Melhor tratamento de entradas inválidas
 
 ---
 

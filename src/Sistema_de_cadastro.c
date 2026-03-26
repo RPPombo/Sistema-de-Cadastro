@@ -13,18 +13,25 @@ int main() {
     unsigned short fechar = 0;
 
     while (!fechar){
+        unsigned short voltar = 0;
         escolha = escolher_acao();
 
         switch (escolha)
         {
         case 1:
-            mostrar_alunos(info_alunos);
-            alterar_alunos(&info_alunos);
+            while (!voltar){
+                mostrar_alunos(info_alunos);
+                voltar = alterar_alunos(&info_alunos);
+            }
+            printf("\n");
             break;
 
         case 2:
-            mostrar_professores(info_professores);
-            alterar_professores(&info_professores);
+            while (!voltar){
+                mostrar_professores(info_professores);
+                alterar_professores(&info_professores);
+            }
+            printf("\n");
             break;
             
         default:

@@ -4,15 +4,12 @@ void adicionar_aluno(ALUN* info_alunos) {
     printf("Insira o nome do aluno: ");
     
     char nome[50];
-    fgets(nome, 50, stdin);
+    ler_string(&nome, 50);
 
-    nome[strcspn(nome, "\n")] = '\0';
-
-    printf("\nInsira a turma: ");
+    printf("\nInsira a turma(número): ");
 
     int turma;
-    scanf("%d", &turma);
-    getchar();
+    turma = ler_int();
 
     printf("\n");
 
@@ -27,8 +24,7 @@ void retirar_aluno(ALUN* info_alunos) {
     printf("Insira o índice do aluno a ser retirado: ");
 
     int indice;
-    scanf("%d", &indice);
-    getchar();
+    indice = ler_int();
 
     printf("\n");
 
@@ -46,29 +42,26 @@ void alterar_turma(ALUN* info_alunos) {
     printf("Insira o índice do aluno que deseja alterar a turma: ");
 
     int indice;
-    scanf("%d", &indice);
-    getchar();
+    indice = ler_int();
 
     printf("\nQual turma ele irá: ");
     
     int turma_nova;
-    scanf("%d", &turma_nova);
-    getchar();
+    turma_nova = ler_int();
 
     printf("\n");
 
     info_alunos->turma[indice] = turma_nova;
 }
 
-void alterar_alunos(ALUN* info_alunos) {
+unsigned short alterar_alunos(ALUN* info_alunos) {
+    unsigned short voltar = 0;
     printf("Deseja alterar algo?\n");
     printf("(1)Adicionar aluno\n(2)Retirar aluno\n(3)Alterar turma de um aluno\n(0)Sair\n");
     printf("Escolha: ");
 
     unsigned short escolha = 0;
-    scanf("%hu", &escolha);
-    getchar();
-    printf("\n");
+    escolha = ler_escolha();
 
     switch (escolha)
     {
@@ -85,24 +78,23 @@ void alterar_alunos(ALUN* info_alunos) {
         break;
 
     default:
+        voltar = 1;
         break;
     }
+    return voltar;
 }
+
 
 void adicionar_professor(PROF* info_professores) {
     printf("Insira o nome do professor: ");
 
     char nome[50];
-    fgets(nome, 50, stdin);
-
-    nome[strcspn(nome, "\n")] = '\0';
+    ler_string(&nome, 50);
 
     printf("\nInsira a matéria que ele lecionará: ");
 
     char materia[50];
-    fgets(materia, 50, stdin);
-
-    materia[strcspn(materia, "\n")] = '\0';
+    ler_string(&materia, 50);
 
     printf("\n");
 
@@ -118,8 +110,7 @@ void retirar_professor(PROF* info_professores) {
     printf("Insira o índice do professor a ser retirado: ");
 
     int indice;
-    scanf("%d", &indice);
-    getchar();
+    indice = ler_int();
 
     printf("\n");
 
@@ -138,29 +129,28 @@ void alterar_materia(PROF* info_professores) {
     printf("Insira o índice do professor que deseja alterar a matéria: ");
 
     int indice;
-    scanf("%d", &indice);
-    getchar();
+    indice = ler_int();
 
     printf("\nQual matéria ele irá lecionar: ");
     
     char materia_nova[50];
-    fgets(materia_nova, 50, stdin);
-
-    materia_nova[strcspn(materia_nova, "\n")] = '\0';
+    ler_string(&materia_nova, 50);
 
     printf("\n");
 
     sprintf(info_professores->materia[indice], materia_nova);
 }
 
-void alterar_professores(PROF* info_professores) {
+unsigned short alterar_professores(PROF* info_professores) {
+    unsigned short voltar = 0;
+
     printf("Deseja alterar algo?\n");
     printf("(1)Adicionar professor\n(2)Retirar professor\n(3)Alterar matéria lecionada\n(0)Sair\n");
     printf("Escolha: ");
 
     unsigned short escolha = 0;
-    scanf("%hu", &escolha);
-    getchar();
+    escolha = ler_escolha();
+
     printf("\n");
 
     switch (escolha)
@@ -178,6 +168,10 @@ void alterar_professores(PROF* info_professores) {
         break;
 
     default:
+        voltar = 1;
         break;
     }
+
+    return voltar;
+
 }

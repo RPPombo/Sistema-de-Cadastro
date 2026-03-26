@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include "Gerenciamento_de_structs.h"
+#include "Tratamento_de_entradas.h"
 
 void abertura_do_programa();
 unsigned short escolher_acao();

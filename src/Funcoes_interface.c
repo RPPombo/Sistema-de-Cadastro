@@ -11,11 +11,9 @@ unsigned short escolher_acao() {
     printf("(1)Ver Alunos\n(2)Ver Professores\n(0)Sair\n");
     printf("Escolha: ");
 
-    unsigned short escolha = 0;
-    scanf("%hu", &escolha);
-    getchar();
+    unsigned short escolha;
 
-    printf("\n");
+    escolha = ler_escolha();
 
     return escolha;
 }

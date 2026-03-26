@@ -1,3 +1,4 @@
-Quantidade: 2
-Maria Fernandes de Lima | 1
-Reginaldo Rossi | 1
+Quantidade: 3
+Maria Fernandes de Lima      | 1
+Reginaldo Rossi      | 1
+Alexandre Lemos | 7
