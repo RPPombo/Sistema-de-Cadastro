@@ -14,7 +14,7 @@ void salvar_arquivos_professores(PROF info_professores) {
     fprintf(f, "Quantidade: %d\n", qtd);
 
     for (int i = 0; i<qtd; i++) {
-        fprintf(f, "%s | %s\n", info_professores.nome[i], info_professores.materia[i]);
+        fprintf(f, "%s|%s\n", info_professores.nome[i], info_professores.materia[i]);
     }
 
     fclose(f);
@@ -36,7 +36,7 @@ void salvar_arquivo_alunos(ALUN info_alunos) {
     fprintf(f, "Quantidade: %d\n", qtd);
 
     for (int i=0; i<qtd; i++) {
-        fprintf(f, "%s | %d\n", info_alunos.nome[i], info_alunos.turma[i]);
+        fprintf(f, "%s|%d\n", info_alunos.nome[i], info_alunos.turma[i]);
     }
 
     fclose(f);
