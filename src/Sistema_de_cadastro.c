@@ -29,7 +29,7 @@ int main() {
         case 2:
             while (!voltar){
                 mostrar_professores(info_professores);
-                alterar_professores(&info_professores);
+                voltar = alterar_professores(&info_professores);
             }
             printf("\n");
             break;

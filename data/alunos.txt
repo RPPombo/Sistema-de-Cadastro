@@ -1,4 +1,3 @@
-Quantidade: 3
-Maria Fernandes de Lima      | 1
-Reginaldo Rossi      | 1
-Alexandre Lemos | 7
+Quantidade: 2
+Jefferson Orvalho | 1
+Ana Medeiros | 2

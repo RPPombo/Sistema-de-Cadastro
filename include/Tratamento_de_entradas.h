@@ -6,6 +6,6 @@
 
 unsigned short ler_escolha();
 int ler_int();
-void ler_string(char* string, int tamanho);
+void ler_string(int tamanho, char string[tamanho]);
 
 #endif

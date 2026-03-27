@@ -4,7 +4,7 @@ void adicionar_aluno(ALUN* info_alunos) {
     printf("Insira o nome do aluno: ");
     
     char nome[50];
-    ler_string(&nome, 50);
+    ler_string(50, nome);
 
     printf("\nInsira a turma(número): ");
 
@@ -16,7 +16,7 @@ void adicionar_aluno(ALUN* info_alunos) {
     info_alunos->quantidade++;
     realocar_memoria_alunos(info_alunos);
 
-    sprintf(info_alunos->nome[info_alunos->quantidade-1], nome);
+    snprintf(info_alunos->nome[info_alunos->quantidade-1], 50, "%s", nome);
     info_alunos->turma[info_alunos->quantidade-1] = turma;
 }
 
@@ -89,12 +89,12 @@ void adicionar_professor(PROF* info_professores) {
     printf("Insira o nome do professor: ");
 
     char nome[50];
-    ler_string(&nome, 50);
+    ler_string(50, nome);
 
     printf("\nInsira a matéria que ele lecionará: ");
 
     char materia[50];
-    ler_string(&materia, 50);
+    ler_string(50, materia);
 
     printf("\n");
 
@@ -102,8 +102,8 @@ void adicionar_professor(PROF* info_professores) {
 
     realocar_memoria_professores(info_professores);
 
-    sprintf(info_professores->nome[info_professores->quantidade-1], nome);
-    sprintf(info_professores->materia[info_professores->quantidade-1], materia);
+    snprintf(info_professores->nome[info_professores->quantidade-1], 50, "%s", nome);
+    snprintf(info_professores->materia[info_professores->quantidade-1], 50, "%s", materia);
 }
 
 void retirar_professor(PROF* info_professores) {
@@ -134,11 +134,11 @@ void alterar_materia(PROF* info_professores) {
     printf("\nQual matéria ele irá lecionar: ");
     
     char materia_nova[50];
-    ler_string(&materia_nova, 50);
+    ler_string(50, materia_nova);
 
     printf("\n");
 
-    sprintf(info_professores->materia[indice], materia_nova);
+    snprintf(info_professores->materia[indice], 50, "%s", materia_nova);
 }
 
 unsigned short alterar_professores(PROF* info_professores) {
