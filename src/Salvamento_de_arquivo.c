@@ -43,7 +43,7 @@ void salvar_arquivo_alunos(ALUN info_alunos) {
 
     fclose(f);
 
-    remove(ARQ_PROFESSORES);
+    remove(ARQ_ALUNOS);
     if (rename(TMP_ALUNOS, ARQ_ALUNOS) != 0) {
         printf("Erro na renomeação de arquivo! %s -> %s\n", TMP_ALUNOS, ARQ_ALUNOS);
     }
@@ -58,7 +58,7 @@ void salvar_arquivos(ALUN info_alunos, PROF info_professores) {
 
 void salvar_arquivo_aluno_bckp(ALUN info_alunos) {
     FILE* f;
-    f = fopen(BCKP_ALUNOS, "w");
+    f = fopen(TMP_ALUNOS, "w");
 
     int qtd = info_alunos.quantidade;
 
@@ -69,12 +69,17 @@ void salvar_arquivo_aluno_bckp(ALUN info_alunos) {
     }
 
     fclose(f);
+
+    remove(BCKP_ALUNOS);
+    if (rename(TMP_ALUNOS, BCKP_ALUNOS) != 0) {
+        printf("Erro na renomeação de arquivo! %s -> %s\n", TMP_ALUNOS, BCKP_ALUNOS);
+    }
 }
 
 void salvar_arquivo_professor_bckp(PROF info_professores) {
     FILE* f;
 
-    f = fopen(BCKP_PROFESSORES, "w");
+    f = fopen(TMP_PROFESSORES, "w");
 
     int qtd = info_professores.quantidade;
 
@@ -85,4 +90,9 @@ void salvar_arquivo_professor_bckp(PROF info_professores) {
     }
 
     fclose(f);
+
+    remove(BCKP_PROFESSORES);
+    if (rename(TMP_PROFESSORES, BCKP_PROFESSORES) != 0) {
+        printf("Erro na renomeação de arquivo! %s -> %s\n", TMP_PROFESSORES, BCKP_PROFESSORES);
+    }
 }

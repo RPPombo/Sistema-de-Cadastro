@@ -10,7 +10,7 @@ int alocar_memoria(void** ponteiro, size_t tamanho, int qtd) {
 }
 
 int realocar_memoria(void** ponteiro, size_t tamanho_novo) {
-    void* temp = meu_realloc(*ponteiro, tamanho_novo);
+    void* temp = realloc(*ponteiro, tamanho_novo);
 
     if (temp == NULL) return 1;
 
