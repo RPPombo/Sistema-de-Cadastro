@@ -7,4 +7,6 @@
 #include "Funcoes_interface.h"
 #include "Alteracao_de_dados.h"
 #include "Salvamento_de_arquivo.h"
+#include "Structs.h"
+#include "Tratamento_de_erros.h"
 #endif

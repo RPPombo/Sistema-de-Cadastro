@@ -2,7 +2,7 @@
 #define _FUNCOES_I_H_
 
 #include <stdio.h>
-#include "Gerenciamento_de_structs.h"
+#include "Structs.h"
 #include "Tratamento_de_entradas.h"
 
 void abertura_do_programa();

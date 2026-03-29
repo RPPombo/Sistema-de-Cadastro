@@ -1,29 +1,15 @@
-#ifndef _STRUCTS_H_
-#define _STRUCTS_H_
+#ifndef _GERENCIAMENTO_STRUCTS_H_
+#define _GERENCIAMENTO_STRUCTS_H_
 #include <stdlib.h>
+#include <stdio.h>
+#include "Structs.h"
 
-struct alunos
-{
-    int quantidade;
-    char** nome;
-    int* turma;
-};
-
-typedef struct alunos ALUN;
-
-struct professores
-{
-    int quantidade;
-    char** nome;
-    char** materia; 
-};
-
-typedef struct professores PROF;
-
-void alocar_memoria_alunos(ALUN* info_alunos);
-void alocar_memoria_professores(PROF* info_professores);
-void realocar_memoria_alunos(ALUN* info_alunos);
-void realocar_memoria_professores(PROF* info_professores);
+int alocar_memoria(void** ponteiro, size_t tamanho, int qtd);
+int realocar_memoria(void** ponteiro, size_t tamanho_novo);
+int alocar_memoria_alunos(ALUN* info_alunos);
+int alocar_memoria_professores(PROF* info_professores);
+int realocar_memoria_alunos(ALUN* info_alunos);
+int realocar_memoria_professores(PROF* info_professores);
 void liberar_memoria_alunos(ALUN* info_alunos);
 void liberar_memoria_professores(PROF* info_professores);
 void liberar_memoria_structs(ALUN* info_alunos, PROF* info_professores);

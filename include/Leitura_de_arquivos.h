@@ -3,9 +3,10 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include "Structs.h"
 #include "Gerenciamento_de_structs.h"
 
 FILE* carregar_arquivo(char* nome_do_arquivo);
-void carregar_alunos(ALUN* info_alunos);
-void carregar_professores(PROF* info_professores);
+int carregar_alunos(ALUN* info_alunos);
+int carregar_professores(PROF* info_professores);
 #endif

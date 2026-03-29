@@ -1,6 +1,8 @@
 #include "Alteracao_de_dados.h"
 
-void adicionar_aluno(ALUN* info_alunos) {
+int adicionar_aluno(ALUN* info_alunos) {
+    int erro = 0;
+
     printf("Insira o nome do aluno: ");
     
     char nome[50];
@@ -14,10 +16,18 @@ void adicionar_aluno(ALUN* info_alunos) {
     printf("\n");
 
     info_alunos->quantidade++;
-    realocar_memoria_alunos(info_alunos);
+    
+    erro = realocar_memoria_alunos(info_alunos);
+
+    if (erro) {
+        goto final;
+    }
 
     snprintf(info_alunos->nome[info_alunos->quantidade-1], 50, "%s", nome);
     info_alunos->turma[info_alunos->quantidade-1] = turma;
+
+    final:
+        return erro;
 }
 
 void retirar_aluno(ALUN* info_alunos) {
@@ -54,7 +64,7 @@ void alterar_turma(ALUN* info_alunos) {
     info_alunos->turma[indice] = turma_nova;
 }
 
-unsigned short alterar_alunos(ALUN* info_alunos) {
+unsigned short alterar_alunos(ALUN* info_alunos, int* erro) {
     unsigned short voltar = 0;
     printf("Deseja alterar algo?\n");
     printf("(1)Adicionar aluno\n(2)Retirar aluno\n(3)Alterar turma de um aluno\n(0)Sair\n");
@@ -66,7 +76,10 @@ unsigned short alterar_alunos(ALUN* info_alunos) {
     switch (escolha)
     {
     case 1:
-        adicionar_aluno(info_alunos);
+        if (adicionar_aluno(info_alunos)) {
+            *erro = 1;
+            voltar = 1;
+        }
         break;
     
     case 2:
@@ -85,7 +98,9 @@ unsigned short alterar_alunos(ALUN* info_alunos) {
 }
 
 
-void adicionar_professor(PROF* info_professores) {
+int adicionar_professor(PROF* info_professores) {
+    int erro = 0;
+
     printf("Insira o nome do professor: ");
 
     char nome[50];
@@ -100,10 +115,17 @@ void adicionar_professor(PROF* info_professores) {
 
     info_professores->quantidade++;
 
-    realocar_memoria_professores(info_professores);
+    erro = realocar_memoria_professores(info_professores);
+
+    if (erro) {
+        goto final;
+    }
 
     snprintf(info_professores->nome[info_professores->quantidade-1], 50, "%s", nome);
     snprintf(info_professores->materia[info_professores->quantidade-1], 50, "%s", materia);
+
+    final:
+        return erro;
 }
 
 void retirar_professor(PROF* info_professores) {
@@ -141,7 +163,7 @@ void alterar_materia(PROF* info_professores) {
     snprintf(info_professores->materia[indice], 50, "%s", materia_nova);
 }
 
-unsigned short alterar_professores(PROF* info_professores) {
+unsigned short alterar_professores(PROF* info_professores, int* erro) {
     unsigned short voltar = 0;
 
     printf("Deseja alterar algo?\n");
@@ -156,7 +178,10 @@ unsigned short alterar_professores(PROF* info_professores) {
     switch (escolha)
     {
     case 1:
-        adicionar_professor(info_professores);
+        if (adicionar_professor(info_professores)) {
+            *erro = 1;
+            voltar = 1;
+        }
         break;
     
     case 2:

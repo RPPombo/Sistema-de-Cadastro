@@ -1,50 +1,101 @@
 #include "Gerenciamento_de_structs.h"
 
 #define TAMANHO_NOME 50
-void alocar_memoria_alunos(ALUN* info_alunos) {
-    int qtd = info_alunos->quantidade;
+#define CHECK_ERRO(x) if(x) goto final;
 
-    info_alunos->nome = malloc(sizeof(char*) * qtd);
-    info_alunos->turma = malloc(sizeof(int) * qtd);
-
-    for (int i=0; i<qtd; i++) {
-        info_alunos->nome[i] = malloc(sizeof(char) * TAMANHO_NOME);
-    }
+int alocar_memoria(void** ponteiro, size_t tamanho, int qtd) {
+    *ponteiro = calloc(tamanho, qtd);
+    if (*ponteiro == NULL) return 1;
+    return 0;
 }
 
-void alocar_memoria_professores(PROF* info_professores) {
-    int qtd = info_professores->quantidade;
+int realocar_memoria(void** ponteiro, size_t tamanho_novo) {
+    void* temp = meu_realloc(*ponteiro, tamanho_novo);
 
-    info_professores->nome = malloc(sizeof(char*) * qtd);
-    info_professores->materia = malloc(sizeof(char*) * qtd);
+    if (temp == NULL) return 1;
+
+    *ponteiro = temp;
+    return 0;
+}
+
+int alocar_memoria_alunos(ALUN* info_alunos) {
+    int controle = 0;
+
+    int qtd = info_alunos->quantidade;
+
+    controle = alocar_memoria((void**)&info_alunos->nome, sizeof(char*), qtd);
+    CHECK_ERRO(controle);
+    controle = alocar_memoria((void**)&info_alunos->turma, sizeof(int), qtd);
+    CHECK_ERRO(controle);
 
     for (int i=0; i<qtd; i++) {
-        info_professores->nome[i] = malloc(sizeof(char) * TAMANHO_NOME);
+        controle = alocar_memoria((void**)&info_alunos->nome[i], sizeof(char), TAMANHO_NOME);
+        CHECK_ERRO(controle);
+    }
+    CHECK_ERRO(controle);
+
+    final:
+        return controle;
+}
+
+int alocar_memoria_professores(PROF* info_professores) {
+    int controle = 0;
+
+    int qtd = info_professores->quantidade;
+
+    controle = alocar_memoria((void**)&info_professores->nome, sizeof(char*), qtd);
+    CHECK_ERRO(controle);
+    controle = alocar_memoria((void**)&info_professores->materia, sizeof(char*), qtd);
+    CHECK_ERRO(controle);
+
+    for (int i=0; i<qtd; i++) {
+        controle = alocar_memoria((void**)&info_professores->nome[i], sizeof(char), TAMANHO_NOME);
+        CHECK_ERRO(controle);
     }
 
     for (int i=0; i<qtd; i++){
-        info_professores->materia[i] = malloc(sizeof(char) * TAMANHO_NOME);
+        controle = alocar_memoria((void**)&info_professores->materia[i], sizeof(char), TAMANHO_NOME);
+        CHECK_ERRO(controle);
     }
-    
+
+    final:
+        return controle;
 }
 
-void realocar_memoria_alunos(ALUN* info_alunos) {
+int realocar_memoria_alunos(ALUN* info_alunos) {
+    int controle = 0;
+
     int qtd = info_alunos->quantidade;
+    
+    controle = realocar_memoria((void**)&info_alunos->nome, sizeof(char*) * qtd);
+    CHECK_ERRO(controle);
+    controle = realocar_memoria((void**)&info_alunos->turma, sizeof(int) * qtd);
+    CHECK_ERRO(controle);
 
-    info_alunos->nome = realloc(info_alunos->nome, sizeof(char*) * qtd);
-    info_alunos->turma = realloc(info_alunos->turma, sizeof(int) * qtd);
+    controle = alocar_memoria((void**)&info_alunos->nome[qtd-1], sizeof(char), TAMANHO_NOME);
+    CHECK_ERRO(controle);
 
-    info_alunos->nome[qtd-1] = malloc(sizeof(char) * TAMANHO_NOME);
+    final:
+        return controle;
 }
 
-void realocar_memoria_professores(PROF* info_professores) {
+int realocar_memoria_professores(PROF* info_professores) {
+    int controle = 0;
+
     int qtd = info_professores->quantidade;
+    
+    controle = realocar_memoria((void**)&info_professores->nome, sizeof(char*) * qtd);
+    CHECK_ERRO(controle);
+    controle = realocar_memoria((void**)&info_professores->materia, sizeof(char*) * qtd);
+    CHECK_ERRO(controle);
 
-    info_professores->nome = realloc(info_professores->nome, sizeof(char*) * qtd);
-    info_professores->materia = realloc(info_professores->materia, sizeof(char*) * qtd);
+    controle = alocar_memoria((void**)&info_professores->nome[qtd-1], sizeof(char), TAMANHO_NOME);
+    CHECK_ERRO(controle);
+    controle = alocar_memoria((void**)&info_professores->materia[qtd-1], sizeof(char), TAMANHO_NOME);
+    CHECK_ERRO(controle);
 
-    info_professores->nome[qtd-1] = malloc(sizeof(char) * TAMANHO_NOME);
-    info_professores->materia[qtd-1] = malloc(sizeof(char) * TAMANHO_NOME);
+    final:
+        return controle;
 }
 
 void liberar_memoria_alunos(ALUN* info_alunos) {

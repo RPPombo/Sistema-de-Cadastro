@@ -22,7 +22,8 @@ FILE* carregar_arquivo(char* nome_do_arquivo) {
     return f;
 }
 
-void carregar_alunos(ALUN* info_alunos) {
+int carregar_alunos(ALUN* info_alunos) {
+    int erro = 0;
 
     FILE* f = carregar_arquivo("alunos.txt");
 
@@ -31,7 +32,11 @@ void carregar_alunos(ALUN* info_alunos) {
     fgets(linha, sizeof(linha), f);
     sscanf(linha, "Quantidade: %d", &info_alunos->quantidade);
 
-    alocar_memoria_alunos(info_alunos);
+    erro = alocar_memoria_alunos(info_alunos);
+
+    if (erro) {
+        goto final;
+    }
 
     for (int i = 0; i < info_alunos->quantidade; i++) {
 
@@ -42,10 +47,13 @@ void carregar_alunos(ALUN* info_alunos) {
                &info_alunos->turma[i]);
     }
 
-    fclose(f);
+    final:
+        fclose(f);
+        return erro;
 }
 
-void carregar_professores(PROF* info_professores) {
+int carregar_professores(PROF* info_professores) {
+    int erro = 0;
 
     FILE* f = carregar_arquivo("professores.txt");
 
@@ -54,7 +62,11 @@ void carregar_professores(PROF* info_professores) {
     fgets(linha, sizeof(linha), f);
     sscanf(linha, "Quantidade: %d", &info_professores->quantidade);
 
-    alocar_memoria_professores(info_professores);
+    erro = alocar_memoria_professores(info_professores);
+
+    if (erro) {
+        goto final;
+    }
 
     for (int i = 0; i < info_professores->quantidade; i++) {
 
@@ -65,5 +77,7 @@ void carregar_professores(PROF* info_professores) {
                info_professores->materia[i]);
     }
 
-    fclose(f);
+    final:
+        fclose(f);
+        return erro;
 }
