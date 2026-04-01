@@ -19,6 +19,7 @@ unsigned short escolher_acao() {
 }
 
 void mostrar_alunos(ALUN info_alunos) {
+    printf("---------------------\n");
     printf("Total de alunos: %d\n\n", info_alunos.quantidade);
 
     printf("Índice | Nome do aluno | Turma\n");
@@ -31,6 +32,7 @@ void mostrar_alunos(ALUN info_alunos) {
 }
 
 void mostrar_professores(PROF info_professores) {
+    printf("---------------------\n");
     printf("Total de professores: %d\n\n", info_professores.quantidade);
 
     printf("Índice | Nome do professor | Matéria Lecionada\n");

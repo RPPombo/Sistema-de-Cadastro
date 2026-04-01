@@ -19,7 +19,7 @@ A arquitetura do projeto é a seguinte:
 
 ```arquitetura
 Sistema de cadastro
- ┣ data
+┣ data
  ┃ ┣ alunos.txt
  ┃ ┣ alunos_bckp.txt
  ┃ ┣ professores.txt
@@ -30,6 +30,7 @@ Sistema de cadastro
  ┃ ┗ menu_professores.png
  ┣ include
  ┃ ┣ Alteracao_de_dados.h
+ ┃ ┣ Busca_nomes.h
  ┃ ┣ Funcoes_interface.h
  ┃ ┣ Gerenciamento_de_structs.h
  ┃ ┣ Leitura_de_arquivos.h
@@ -40,6 +41,7 @@ Sistema de cadastro
  ┃ ┗ Tratamento_de_erros.h
  ┣ src
  ┃ ┣ Alteracao_de_dados.c
+ ┃ ┣ Busca_nomes.c
  ┃ ┣ Funcoes_interface.c
  ┃ ┣ Gerenciamento_de_structs.c
  ┃ ┣ Leitura_de_arquivos.c
@@ -112,14 +114,16 @@ O sistema atualmente permite:
 - Adicionar alunos
 - Remover alunos
 - Alterar turma de alunos
+- Buscar por aluno
 
 - Visualizar professores
 - Adicionar professores
 - Remover professores
 - Alterar matéria lecionada
+- Buscar por professor
 
-- Salvamento em arquivos .txt
-- Criação de backups antes de cada atualização em .txt
+- Salvamento manual em arquivos .txt
+- Criação de backups automáticos antes de cada atualização em .txt
 
 ---
 
@@ -128,7 +132,6 @@ O sistema atualmente permite:
 Algumas melhorias planejadas para o projeto:
 
 - Ordenação automática (ordem alfabética)
-- Busca de alunos ou professores por nome
 - Interface de menu mais robusta
 
 ---

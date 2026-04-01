@@ -59,7 +59,12 @@ int main() {
         }
     }
 
-    salvar_arquivos(info_alunos, info_professores);
+    printf("\nDeseja salvar alterações (1)Sim (0)Não:");
+    escolha = ler_escolha();
+    if (escolha){
+        salvar_arquivos(info_alunos, info_professores);
+    }
 
     liberar_memoria_structs(&info_alunos, &info_professores);
+    
 }
