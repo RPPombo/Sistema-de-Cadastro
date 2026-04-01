@@ -19,7 +19,7 @@ void bsucar_aluno(ALUN info_alunos) {
         }
 
         if (achou) {
-            printf("%s | %d\n", info_alunos.nome[aluno], info_alunos.turma[aluno]);
+            printf("%d | %s | %d\n", aluno, info_alunos.nome[aluno], info_alunos.turma[aluno]);
         }
     }
     printf("\n");
@@ -44,7 +44,7 @@ void buscar_professor(PROF info_professores) {
         }
 
         if (achou) {
-            printf("%s | %s\n", info_professores.nome[professor], info_professores.materia[professor]);
+            printf("%d | %s | %s\n", professor, info_professores.nome[professor], info_professores.materia[professor]);
         }
     }
     printf("\n");
