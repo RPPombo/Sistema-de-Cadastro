@@ -14,6 +14,7 @@ void bsucar_aluno(ALUN info_alunos) {
             if (info_alunos.nome[aluno][caractere] == nome[caractere]){
                 achou = 1;
             } else {
+                achou = 0;
                 break;
             }
         }
@@ -39,6 +40,7 @@ void buscar_professor(PROF info_professores) {
             if (info_professores.nome[professor][caractere] == nome[caractere]){
                 achou = 1;
             } else {
+                achou = 0;
                 break;
             }
         }
