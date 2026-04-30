@@ -8,6 +8,7 @@
 #include "Structs.h"
 #include "Tratamento_de_erros.h"
 #include "Busca_nomes.h"
+#include "Ordem_alfabetica.h"
 
 int adicionar_aluno(ALUN* info_alunos);
 void retirar_aluno(ALUN* info_alunos);

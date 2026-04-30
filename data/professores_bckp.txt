@@ -1,5 +1,5 @@
 Quantidade: 4
-Leonardo Silva|Geografia
+Alex Porto|Caligrafia
 Anderson Ramos|Biologia
 Jorge Amado|Espanhol
-Alex Porto|Caligrafia
+Leonardo Silva|Geografia

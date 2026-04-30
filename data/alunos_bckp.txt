@@ -1,6 +1,6 @@
 Quantidade: 5
-Jefferson Orvalho|1
-Ana Medeiros|2
-Leonardo Ramos|1
-Carlos Felix|3
 Ana Lima|5
+Ana Medeiros|2
+Carlos Felix|3
+Jefferson Orvalho|1
+Leonardo Ramos|1

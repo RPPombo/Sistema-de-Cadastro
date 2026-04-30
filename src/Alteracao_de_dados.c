@@ -67,7 +67,7 @@ void alterar_turma(ALUN* info_alunos) {
 unsigned short alterar_alunos(ALUN* info_alunos, int* erro) {
     unsigned short voltar = 0;
     printf("Deseja alterar algo?\n");
-    printf("(1)Adicionar aluno\n(2)Retirar aluno\n(3)Alterar turma de um aluno\n(4)Buscar Aluno\n(0)Sair\n");
+    printf("(1)Adicionar aluno\n(2)Retirar aluno\n(3)Alterar turma de um aluno\n(4)Organizar Alfabeticamente\n(5)Buscar Aluno\n(0)Sair\n");
     printf("Escolha: ");
 
     unsigned short escolha = 0;
@@ -91,6 +91,10 @@ unsigned short alterar_alunos(ALUN* info_alunos, int* erro) {
         break;
 
     case 4:
+        *info_alunos = ordenar_alfabeticamente_alunos(*info_alunos);
+        break;
+
+    case 5:
         bsucar_aluno(*info_alunos);
         break;
 
@@ -171,7 +175,7 @@ unsigned short alterar_professores(PROF* info_professores, int* erro) {
     unsigned short voltar = 0;
 
     printf("Deseja alterar algo?\n");
-    printf("(1)Adicionar professor\n(2)Retirar professor\n(3)Alterar matéria lecionada\n(4)Buscar Professor\n(0)Sair\n");
+    printf("(1)Adicionar professor\n(2)Retirar professor\n(3)Alterar matéria lecionada\n(4)Organizar Alfabeticamente\n(5)Buscar Professor\n(0)Sair\n");
     printf("Escolha: ");
 
     unsigned short escolha = 0;
@@ -197,6 +201,10 @@ unsigned short alterar_professores(PROF* info_professores, int* erro) {
         break;
 
     case 4:
+        *info_professores = ordenar_alfabeticamente_professores(*info_professores);
+        break;
+
+    case 5:
         buscar_professor(*info_professores);
         break;
 
